@@ -1,0 +1,241 @@
+:root {
+  /* Colors */
+  --clr-primary-moderate-violet: hsl(263, 55%, 52%);
+  --clr-primary-very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --clr-primary-very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --clr-primary-white: hsl(0, 0%, 100%);
+
+  --clr-neutral-light-gray: hsl(0, 0%, 81%);
+  --clr-neutral-light-grayish-blue: hsl(210, 46%, 95%);
+
+  /* Font Family */
+  --font-family-primary: "Barlow Semi Condensed", sans-serif;
+
+  /* Font Weight */
+  --font-weight-bold: 600;
+  --font-weight-regular: 500;
+
+  /* Font Size */
+  --font-size-200: 0.75rem;
+  --font-size-300: 0.875rem;
+  --font-size-400: 1rem;
+  --font-size-500: 1.125rem;
+  --font-size-600: 1.25rem;
+  --font-size-700: 1.5rem;
+  --font-size-800: 1.875rem;
+  --font-size-900: 2.25rem;
+}
+
+/* Reset */
+/*  https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* General styling */
+
+body {
+  background-color: var(--clr-neutral-light-gray);
+  color: var(--clr-primary-white);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-300);
+}
+
+main {
+  display: grid;
+  grid-template-areas:
+    "article-one"
+    "article-two"
+    "article-three"
+    "article-four"
+    "article-five";
+  padding: 1rem 2rem;
+  gap: 1rem;
+}
+
+article {
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5rem;
+}
+
+.profile img {
+  border-radius: 5rem;
+  margin-right: 0.5rem;
+}
+
+.accent {
+  margin-bottom: 0.5rem;
+}
+
+article:nth-child(1) {
+  grid-area: article-one;
+  background-color: var(--clr-primary-moderate-violet);
+  color: hsl(0, 0%, 100%);
+  position: relative;
+}
+
+.quotation {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 50%;
+}
+
+.quotation img {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  left: 65%;
+  top: 0%;
+}
+
+article:nth-child(2) {
+  grid-area: article-two;
+  background-color: var(--clr-primary-very-dark-grayish-blue);
+  color: var(--clr-primary-white);
+}
+
+article:nth-child(3) {
+  grid-area: article-three;
+  background-color: var(--clr-primary-white);
+  color: hsl(219, 29%, 14%);
+}
+
+article:nth-child(4) {
+  grid-area: article-four;
+  background-color: var(--clr-primary-very-dark-blackish-blue);
+  color: var(--clr-primary-white);
+}
+
+article:nth-child(5) {
+  grid-area: article-five;
+  background-color: var(--clr-primary-white);
+  color: var(--clr-primary-very-dark-blackish-blue);
+}
+
+article:nth-child(1) h3,
+article:nth-child(2) h3,
+article:nth-child(4) h3 {
+  color: hsla(0, 0%, 100%, 50%);
+}
+
+article:nth-child(1) p,
+article:nth-child(2) p,
+article:nth-child(4) p {
+  color: hsla(0, 0%, 100%, 70%);
+}
+
+article:nth-child(1) .accent,
+article:nth-child(2) .accent,
+article:nth-child(4) .accent {
+  color: hsl(0, 0%, 100%);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-500);
+  z-index: 2;
+}
+
+article:nth-child(3) h3,
+article:nth-child(5) h3 {
+  color: hsla(219, 29%, 14%, 50%);
+}
+
+article:nth-child(3) p,
+article:nth-child(5) p {
+  color: hsla(219, 29%, 14%, 70%);
+}
+
+article:nth-child(3) .accent,
+article:nth-child(5) .accent {
+  color: hsl(219, 29%, 14%);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-500);
+}
+
+/* Media queries */
+@media (min-width: 50em) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "article-one article-one article-two article-five"
+      "article-three article-four article-four article-five";
+    max-width: 1200px;
+  }
+}
